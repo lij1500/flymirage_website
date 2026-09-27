@@ -13,8 +13,8 @@
       type="image/svg+xml"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307111f'/%3E%3Cpath d='M12 42c11-2 15-17 28-18 6 0 10 3 12 8' fill='none' stroke='%235eead4' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='13' cy='42' r='4' fill='%23f7b955'/%3E%3Ccircle cx='52' cy='32' r='4' fill='%23f7b955'/%3E%3C/svg%3E"
     />
-    <title>FlyMirage — Project Website</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>FlyMirage — A Fully Automated Generation Pipeline for Diverse and Scalable UAV Flight Data via Generative World Model</title>
+    <link rel="stylesheet" href="style.css?v=3" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -23,18 +23,44 @@
       <section class="hero" id="top">
         <div class="container hero-content">
           <div class="hero-intro">
-            <h1>FlyMirage</h1>
+            <h1>
+              <span class="project-name">FlyMirage</span>
+              <span class="project-subtitle">A Fully Automated Generation Pipeline for Diverse and Scalable UAV Flight Data via Generative World Model</span>
+            </h1>
 
             <p class="authors">
-              <a href="#">First Author</a><sup>1</sup>,
-              <a href="#">Second Author</a><sup>1</sup>,
-              <a href="#">Third Author</a><sup>2</sup>
+              Jinhan Li<sup>#,1,2</sup>,
+              Xijie Huang<sup>#,1,2</sup>,
+              Weiqi Gai<sup>2</sup>,
+              Zhaoqi Wang<sup>2</sup>,
+              Qiyi He<sup>2</sup>,
+              Yijin Wang<sup>1,2</sup>,
+              Mo Zhu<sup>1,2</sup>,
+              Zhiyang Liu<sup>2</sup>,
+              Fei Gao<sup>1,2</sup>,
+              Xin Zhou<sup>2</sup>,
+              Yuze Wu*<sup>1,2</sup>,
+              Ziming Ding<sup>2</sup>
             </p>
-            <p class="affiliations"><sup>1</sup>Institution One &nbsp; <sup>2</sup>Institution Two</p>
+            <p class="affiliations">
+              <sup>1</sup>Zhejiang University &nbsp; <sup>2</sup>Differential Robotics
+              <span class="corresponding-author">* Corresponding author</span>
+              <span class="equal-contribution"># Equal contribution</span>
+            </p>
 
             <div class="button-row" aria-label="Project resources">
-              <a class="button button-primary" href="#">Paper</a>
-              <a class="button" href="#">Dataset</a>
+              <a
+                class="button button-primary"
+                href="https://arxiv.org/abs/2605.19600"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Paper (Arxiv)</a>
+              <a
+                class="button"
+                href="https://huggingface.co/datasets/Li-200/flymirage"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Dataset (Huggingface)</a>
             </div>
           </div>
 
@@ -80,7 +106,7 @@
               tabindex="0"
             >
               <span>01</span>
-              Stage 1
+              World Generation
             </button>
             <button
               class="stage-tab"
@@ -92,7 +118,7 @@
               tabindex="-1"
             >
               <span>02</span>
-              Stage 2
+              Scene Annotation
             </button>
             <button
               class="stage-tab"
@@ -104,7 +130,7 @@
               tabindex="-1"
             >
               <span>03</span>
-              Stage 3
+              Navigation &amp; Collection
             </button>
           </div>
 
@@ -136,13 +162,25 @@
               <img src="assets/stage_3.png" alt="FlyMirage dataset generation pipeline, stage 3" />
             </article>
           </div>
+
+          <div class="stage-descriptions" aria-live="polite">
+            <p class="stage-description" data-stage-description="stage-1">
+              The pipeline begins by selecting from a wide range of indoor and outdoor scene types. It creates a detailed description and reference image, then transforms them into a realistic, explorable 3D world.
+            </p>
+            <p class="stage-description" data-stage-description="stage-2" hidden>
+              The system observes the generated world from multiple viewpoints to find objects and estimate their positions. Additional camera views are used to refine the results and produce accurate 3D bounding boxes.
+            </p>
+            <p class="stage-description" data-stage-description="stage-3" hidden>
+              Detected objects are selected as navigation goals for the UAV. A motion-aware planner generates smooth, collision-free flight paths between objects while recording images, depth, UAV poses.
+            </p>
+          </div>
         </div>
       </section>
 
       <section class="dataset-section" id="dataset">
         <div class="container">
           <div class="dataset-heading">
-            <p class="section-label">Stage 1 Result</p>
+            <p class="section-label">Stage 1 (World Generation) Outcome</p>
             <h2>Scenes</h2>
           </div>
 
@@ -337,7 +375,7 @@
       <section class="bbox-section" id="object-bounding-box">
         <div class="container">
           <div class="bbox-heading">
-            <p class="section-label">Stage 2 Result</p>
+            <p class="section-label">Stage 2 (Scene Annotation) Outcome</p>
             <h2>Object Bounding Box</h2>
           </div>
 
@@ -349,7 +387,6 @@
                   Your browser does not support embedded video.
                 </video>
               </div>
-              <p><span>01</span></p>
             </article>
 
             <article class="bbox-video-card">
@@ -359,7 +396,6 @@
                   Your browser does not support embedded video.
                 </video>
               </div>
-              <p><span>02</span></p>
             </article>
 
             <article class="bbox-video-card">
@@ -369,7 +405,6 @@
                   Your browser does not support embedded video.
                 </video>
               </div>
-              <p><span>03</span></p>
             </article>
 
             <article class="bbox-video-card">
@@ -379,7 +414,6 @@
                   Your browser does not support embedded video.
                 </video>
               </div>
-              <p><span>04</span></p>
             </article>
           </div>
         </div>
@@ -388,7 +422,7 @@
       <section class="trajectory-section" id="trajectories">
         <div class="container">
           <div class="trajectory-heading">
-            <p class="section-label">Stage 3 Result</p>
+            <p class="section-label">Stage 3 (Navigation &amp; Collection) Outcome</p>
             <h2>Trajectories</h2>
           </div>
 
@@ -483,22 +517,22 @@
           </div>
 
           <div class="trajectory-video-grid" aria-label="Trajectory examples">
-            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 1"><source src="assets/firmirage_1.mp4" type="video/mp4" />Your browser does not support embedded video.</video><p><span>01</span> Trajectory Example</p></article>
-            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 2"><source src="assets/firmirage_2.mp4" type="video/mp4" />Your browser does not support embedded video.</video><p><span>02</span> Trajectory Example</p></article>
-            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 3"><source src="assets/firmirage_3.mp4" type="video/mp4" />Your browser does not support embedded video.</video><p><span>03</span> Trajectory Example</p></article>
-            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 4"><source src="assets/firmirage_4.mp4" type="video/mp4" />Your browser does not support embedded video.</video><p><span>04</span> Trajectory Example</p></article>
-            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 5"><source src="assets/firmirage_5.mp4" type="video/mp4" />Your browser does not support embedded video.</video><p><span>05</span> Trajectory Example</p></article>
-            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 6"><source src="assets/firmirage_6.mp4" type="video/mp4" />Your browser does not support embedded video.</video><p><span>06</span> Trajectory Example</p></article>
-            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 7"><source src="assets/firmirage_7.mp4" type="video/mp4" />Your browser does not support embedded video.</video><p><span>07</span> Trajectory Example</p></article>
-            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 8"><source src="assets/firmirage_8.mp4" type="video/mp4" />Your browser does not support embedded video.</video><p><span>08</span> Trajectory Example</p></article>
-            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 9"><source src="assets/firmirage_9.mp4" type="video/mp4" />Your browser does not support embedded video.</video><p><span>09</span> Trajectory Example</p></article>
-            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 10"><source src="assets/firmirage_10.mp4" type="video/mp4" />Your browser does not support embedded video.</video><p><span>10</span> Trajectory Example</p></article>
-            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 11"><source src="assets/firmirage_11.mp4" type="video/mp4" />Your browser does not support embedded video.</video><p><span>11</span> Trajectory Example</p></article>
-            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 12"><source src="assets/firmirage_12.mp4" type="video/mp4" />Your browser does not support embedded video.</video><p><span>12</span> Trajectory Example</p></article>
+            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 1"><source src="assets/firmirage_1.mp4" type="video/mp4" />Your browser does not support embedded video.</video></article>
+            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 2"><source src="assets/firmirage_2.mp4" type="video/mp4" />Your browser does not support embedded video.</video></article>
+            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 3"><source src="assets/firmirage_3.mp4" type="video/mp4" />Your browser does not support embedded video.</video></article>
+            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 4"><source src="assets/firmirage_4.mp4" type="video/mp4" />Your browser does not support embedded video.</video></article>
+            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 5"><source src="assets/firmirage_5.mp4" type="video/mp4" />Your browser does not support embedded video.</video></article>
+            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 6"><source src="assets/firmirage_6.mp4" type="video/mp4" />Your browser does not support embedded video.</video></article>
+            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 7"><source src="assets/firmirage_7.mp4" type="video/mp4" />Your browser does not support embedded video.</video></article>
+            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 8"><source src="assets/firmirage_8.mp4" type="video/mp4" />Your browser does not support embedded video.</video></article>
+            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 9"><source src="assets/firmirage_9.mp4" type="video/mp4" />Your browser does not support embedded video.</video></article>
+            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 10"><source src="assets/firmirage_10.mp4" type="video/mp4" />Your browser does not support embedded video.</video></article>
+            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 11"><source src="assets/firmirage_11.mp4" type="video/mp4" />Your browser does not support embedded video.</video></article>
+            <article class="trajectory-video-card"><video controls muted loop playsinline preload="metadata" aria-label="Trajectory example 12"><source src="assets/firmirage_12.mp4" type="video/mp4" />Your browser does not support embedded video.</video></article>
           </div>
         </div>
       </section>
     </main>
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
   </body>
 </html>

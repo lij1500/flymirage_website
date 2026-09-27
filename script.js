@@ -1,5 +1,6 @@
 const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
 const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+const stageDescriptions = Array.from(document.querySelectorAll('[data-stage-description]'));
 
 function activateTab(selectedTab) {
   tabs.forEach((tab) => {
@@ -11,6 +12,10 @@ function activateTab(selectedTab) {
 
   panels.forEach((panel) => {
     panel.hidden = panel.id !== selectedTab.getAttribute('aria-controls');
+  });
+
+  stageDescriptions.forEach((description) => {
+    description.hidden = description.dataset.stageDescription !== selectedTab.getAttribute('aria-controls');
   });
 }
 
@@ -54,4 +59,26 @@ sceneItems.forEach((item) => {
   item.addEventListener('mouseleave', clearSceneHighlight);
   item.addEventListener('focus', () => highlightSceneCategory(item.dataset.sceneCategory));
   item.addEventListener('blur', clearSceneHighlight);
+});
+
+const allVideos = document.querySelectorAll('video');
+
+allVideos.forEach((video) => {
+  const keepVideoSilent = () => {
+    if (!video.muted) video.muted = true;
+    if (video.volume !== 0) video.volume = 0;
+  };
+
+  video.defaultMuted = true;
+  keepVideoSilent();
+  video.addEventListener('volumechange', keepVideoSilent);
+});
+
+const trajectoryVideos = document.querySelectorAll('.trajectory-video-card video');
+
+trajectoryVideos.forEach((video) => {
+  video.autoplay = true;
+  video.play().catch(() => {
+    // Some browsers may defer autoplay until the video is visible.
+  });
 });
